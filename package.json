@@ -1,0 +1,37 @@
+{
+  "name": "commanderextension",
+  "displayName": "CommanderExtension",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "123",
+        "aliases": [
+          "Command",
+          "123"
+        ],
+        "extensions": [
+          ""
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "123",
+        "scopeName": "",
+        "path": "./syntaxes/123.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "ziplocalgit": "^1.0.10"
+  }
+}
