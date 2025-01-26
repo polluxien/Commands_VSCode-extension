@@ -1,6 +1,6 @@
 {
-  "name": "commanderextension",
-  "displayName": "CommanderExtension",
+  "name": "commandsextension",
+  "displayName": "CommandsExtension",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -9,28 +9,28 @@
   "categories": [
     "Programming Languages"
   ],
-  "scrips": {
+  "scripts": {
     "abgabe": "ziplocalgit zip -f abgabe_Blatt_06.zip"
   },
   "contributes": {
     "languages": [
       {
-        "id": "123",
+        "id": "cmds",
         "aliases": [
-          "Command",
-          "123"
+          "Commands",
+          "cmds"
         ],
         "extensions": [
-          ""
+          ".cmds"
         ],
         "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
       {
-        "language": "123",
-        "scopeName": "",
-        "path": "./syntaxes/123.tmLanguage.json"
+        "language": "cmds",
+        "scopeName": "source.cmds",
+        "path": "./syntaxes/cmds.tmLanguage.json"
       }
     ]
   },
