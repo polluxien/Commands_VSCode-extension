@@ -3,10 +3,12 @@
   "name": "Commands",
   "patterns": [
     { "include": "#comments" },
-    { "include": "#keywords" },
-    { "include": "#types" },
-    { "include": "#strings" },
-    { "include": "#options" }
+    { "include": "#app" },
+    { "include": "#command" },
+    { "include": "#option" },
+    { "include": "#type" },
+    { "include": "#argument" },
+    { "include": "#value" }
   ],
   "repository": {
     "comments": {
@@ -22,38 +24,87 @@
         }
       ]
     },
-    "keywords": {
+    "app": {
+      "patterns": [
+        {
+          "name": "keyword.control.app",
+          "match": "\\bapp\\b\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*",
+          "captures": {
+            "1": {
+              "name": "variable.other.appName"
+            }
+          }
+        }
+      ]
+    },
+    "command": {
       "patterns": [
         {
           "name": "keyword.control.command",
-          "match": "\\b(app|command|option)\\b"
-        }
-      ]
-    },
-    "types": {
-      "patterns": [
+          "match": "\\bcommand\\b\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.command"
+            }
+          }
+        },
         {
-          "name": "storage.type.command",
-          "match": "\\b(boolean|string|number|true|false)\\b"
-        }
-      ]
-    },
-    "strings": {
-      "name": "string.quoted.double.command",
-      "begin": "\"",
-      "end": "\"",
-      "patterns": [
-        {
-          "name": "constant.character.escape.command",
-          "match": "\\\\."
-        }
-      ]
-    },
-    "options": {
-      "patterns": [
+          "name": "keyword.operator.command-part",
+          "match": "--[a-zA-Z_][a-zA-Z0-9_]*"
+        },
         {
           "name": "variable.parameter.command",
-          "match": "--[a-zA-Z_][a-zA-Z0-9_]*"
+          "match": "<[a-zA-Z_][a-zA-Z0-9_]*>"
+        },
+        {
+          "name": "variable.parameter.command",
+          "match": "\\[[a-zA-Z_][a-zA-Z0-9_]*\\]"
+        }
+      ]
+    },
+    "option": {
+      "patterns": [
+        {
+          "name": "keyword.control.option",
+          "match": "\\boption\\b\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.command"
+            }
+          }
+        },
+        {
+          "name": "storage.type",
+          "match": "\\b(boolean|string|number)\\b"
+        },
+        {
+          "name": "value",
+          "patterns": [
+            {
+              "name": "constant.string",
+              "match": "\".*?\""
+            },
+            {
+              "name": "constant.numeric",
+              "match": "\\b[0-9]+\\b"
+            },
+            {
+              "name": "constant.language.boolean",
+              "match": "\\b(true|false)\\b"
+            }
+          ]
+        }
+      ]
+    },
+    "argument": {
+      "patterns": [
+        {
+          "name": "variable.parameter.argument",
+          "match": "<[a-zA-Z_][a-zA-Z0-9_]*>"
+        },
+        {
+          "name": "variable.parameter.argument",
+          "match": "\\[[a-zA-Z_][a-zA-Z0-9_]*\\]"
         }
       ]
     }
